@@ -45,3 +45,6 @@ def fetchPodcast(id):
     for chunk in r.iter_content(chunk_size=128):
       yield chunk
   return Response(bufferStream(), mimetype='audio/mpeg')
+
+if __name__ == "__main__":
+  app.run(host='0.0.0.0')
