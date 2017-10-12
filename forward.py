@@ -38,8 +38,9 @@ def updateFeedURLs():
 def fetchPodcast(id):
   username = cfg('account', 'username')
   password = cfg('account', 'password')
+  url = 'http://www.f4wradio.com/podcast/{0}.mp3'.format(id)
 
-  r = requests.get(f'http://www.f4wradio.com/podcast/{id}.mp3', auth=HTTPBasicAuth(username, password), stream=True)
+  r = requests.get(url, auth=HTTPBasicAuth(username, password), stream=True)
 
   def bufferStream():
     for chunk in r.iter_content(chunk_size=128):
