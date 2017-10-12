@@ -48,4 +48,4 @@ def fetchPodcast(id):
   return Response(bufferStream(), mimetype='audio/mpeg')
 
 if __name__ == "__main__":
-  app.run(host='0.0.0.0')
+  app.run(host='0.0.0.0', port=cfg('server', 'port'))
