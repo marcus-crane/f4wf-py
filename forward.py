@@ -6,6 +6,8 @@ from flask import Flask, Response
 import requests
 from requests.auth import HTTPBasicAuth
 
+app = Flask(__name__)
+
 def loadConfig():
   config = configparser.ConfigParser()
   config.read('config.ini')
@@ -18,8 +20,6 @@ def cfg(key, option):
 def fetchFeed():
   r = requests.get('http://www.f4wradio.com/feed/wor.rss')
   return r.text
-
-app = Flask(__name__)
 
 @app.route('/')
 def index():
